@@ -1,0 +1,25 @@
+.header-language {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-top: -8px;
+    position: relative;
+
+    .chevron-left {
+        border: none;
+        width: 20px;
+        height: 20px;
+        min-width: 0px;
+        min-height: 0px;
+        margin-left: 28px;
+    }
+    .title {
+        position: absolute;
+        left: 50%;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 22px;
+        transform: translateX(-50%);
+        user-select: none;
+    }
+}

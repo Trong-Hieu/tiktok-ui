@@ -1,0 +1,22 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    min-width: 223px;
+    // padding: 0px 0px 8px 0px;
+    &.separate {
+        border-top: 1px solid rgba(22, 24, 35, 0.12);
+    }
+
+    .menu-item {
+        margin-left: 0px;
+        border: none;
+        font-weight: 500;
+        display: flex;
+        justify-content: start;
+        padding: 10px 8px 10px 16px;
+
+        &:hover {
+            background-color: rgba(22, 24, 35, 0.03);
+        }
+    }
+}

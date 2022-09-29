@@ -1,0 +1,54 @@
+@import 'normalize.css';
+
+// @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@800&display=swap');
+
+:root {
+    --primary: rgba(254, 44, 85, 1);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'ProximaNova', sans-serif;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+
+* {
+    // reset css
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+// Fonts
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Bold.woff2');
+    font-weight: 700;
+}
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Semibold.woff2');
+    font-weight: 600;
+}
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Regular.woff2');
+    font-weight: 400;
+}
+@font-face {
+    font-family: Sofiapro;
+    src: url('/assets/fonts/sofiapro-bold.woff2');
+    font-weight: 700;
+}
+
+button,
+input,
+[tabindex] {
+    border: none;
+    outline: none;
+}
