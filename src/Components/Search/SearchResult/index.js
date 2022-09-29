@@ -1,20 +1,18 @@
 import classNames from 'classnames/bind'
 import styles from './SearchResult.module.scss'
+import { Link } from 'react-router-dom'
 
 const cx = classNames.bind(styles)
 
-function SearchResult() {
+function SearchResult({ data }) {
     return (
-        <div className={cx('wrapper')}>
-            <img
-                className={cx('avatar')}
-                src="https://toigingiuvedep.vn/wp-content/uploads/2021/01/anh-avatar-cho-con-gai-cuc-dep.jpg"
-            ></img>
+        <Link to={'/@' + data.nickname} className={cx('wrapper')}>
+            <img className={cx('avatar')} src={data.avatar}></img>
             <div className={cx('account')}>
-                <h4 className={cx('username')}>BadBitch</h4>
-                <p className={cx('user-account')}>badbitch112233</p>
+                <h4 className={cx('username')}>{data.full_name}</h4>
+                <p className={cx('user-account')}>{data.nickname}</p>
             </div>
-        </div>
+        </Link>
     )
 }
 

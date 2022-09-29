@@ -36,6 +36,18 @@
     position: absolute;
     left: 265px;
 }
+.loading {
+    animation: spiner 1s linear infinite;
+}
+
+@keyframes spiner {
+    from {
+        transform: translateY(0%) rotate(0);
+    }
+    to {
+        transform: translateY(0%) rotate(360deg);
+    }
+}
 
 .slash {
     width: 1px;

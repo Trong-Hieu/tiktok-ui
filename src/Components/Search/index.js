@@ -8,6 +8,7 @@ import SearchResult from './SearchResult'
 import Icon_Clear from '~/assets/icons/clear'
 import Icon_Search from '~/assets/icons/search'
 import ButtonCustomize from '../Button'
+import Icon_Loading from '~/assets/icons/loading'
 
 const cx = classNames.bind(styles)
 
@@ -15,13 +16,26 @@ function SearchForm() {
     const [searchResult, setSearchResult] = useState([])
     const [searchInput, setSearchInput] = useState('')
     const [clickOutSide, setClickOutSide] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     const inputRef = useRef()
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setSearchResult([])
-    //     }, 3000)
-    // })
+
+    useEffect(() => {
+        if (!searchInput.trim()) {
+            setSearchResult([])
+            return
+        }
+
+        setIsLoading(true)
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchInput)}&type=less`)
+            .then((res) => res.json())
+            .then((res) => {
+                setSearchResult(res.data)
+                setIsLoading(false)
+            })
+    }, [searchInput])
+
+    console.log(searchResult)
 
     return (
         <div>
@@ -37,10 +51,9 @@ function SearchForm() {
                     <div className={cx('search-result')}>
                         <DropdownSearch>
                             <div className={cx('title-account')}>Accounts</div>
-                            <SearchResult></SearchResult>
-                            <SearchResult></SearchResult>
-                            <SearchResult></SearchResult>
-                            <SearchResult></SearchResult>
+                            {searchResult.map((result) => (
+                                <SearchResult key={result.id} data={result}></SearchResult>
+                            ))}
                         </DropdownSearch>
                     </div>
                 )}
@@ -51,16 +64,15 @@ function SearchForm() {
                         value={searchInput}
                         onChange={(e) => {
                             setSearchInput(e.target.value)
-                            setSearchResult(e.target.value)
                         }}
                         onFocus={() => {
                             setClickOutSide(false)
                         }}
                         ref={inputRef}
                     ></input>
-                    {/* <img className={cx('clear')} src={images.clear} alt="clear"></img> */}
+                    {isLoading && <Icon_Loading className={cx('loading')}></Icon_Loading>}
 
-                    {searchInput && (
+                    {searchInput && !isLoading && (
                         <Icon_Clear
                             onClick={() => {
                                 setSearchInput('')
