@@ -14,6 +14,8 @@ import Icon_Clear from '~/assets/icons/clear'
 import Icon_Search from '~/assets/icons/search'
 import Icon_Loading from '~/assets/icons/loading'
 
+import * as searchApi from '~/Services/searchService'
+
 const cx = classNames.bind(styles)
 
 function SearchForm() {
@@ -33,12 +35,14 @@ function SearchForm() {
         }
 
         setIsLoading(true)
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res.data)
-                setIsLoading(false)
-            })
+
+        const fetchSearch = async () => {
+            const response = await searchApi.getSearch(debounce)
+            setSearchResult(response)
+            setIsLoading(false)
+        }
+
+        fetchSearch()
     }, [debounce])
 
     console.log(searchResult)
