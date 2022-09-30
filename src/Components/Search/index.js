@@ -1,13 +1,17 @@
+/* eslint-disable react/jsx-pascal-case */
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable camelcase */
 import { useState, useEffect, useRef } from 'react'
 import HeadlessTippy from '@tippyjs/react/headless'
 import styles from './Search.module.scss'
 import classNames from 'classnames/bind'
 
+import { useDebounce } from '~/Hooks'
+
 import DropdownSearch from '~/Components/Dropdown'
 import SearchResult from './SearchResult'
 import Icon_Clear from '~/assets/icons/clear'
 import Icon_Search from '~/assets/icons/search'
-import ButtonCustomize from '../Button'
 import Icon_Loading from '~/assets/icons/loading'
 
 const cx = classNames.bind(styles)
@@ -18,22 +22,24 @@ function SearchForm() {
     const [clickOutSide, setClickOutSide] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
 
+    const debounce = useDebounce(searchInput, 500)
+
     const inputRef = useRef()
 
     useEffect(() => {
-        if (!searchInput.trim()) {
+        if (!debounce.trim()) {
             setSearchResult([])
             return
         }
 
         setIsLoading(true)
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchInput)}&type=less`)
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounce)}&type=less`)
             .then((res) => res.json())
             .then((res) => {
                 setSearchResult(res.data)
                 setIsLoading(false)
             })
-    }, [searchInput])
+    }, [debounce])
 
     console.log(searchResult)
 
@@ -44,7 +50,6 @@ function SearchForm() {
                 interactive={true}
                 // modifiers={[{ name: 'preventOverflow', enabled: false }]}
                 onClickOutside={() => {
-                    console.log('out')
                     setClickOutSide(true)
                 }}
                 render={(attrs) => (
