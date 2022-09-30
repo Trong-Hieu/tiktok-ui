@@ -22,6 +22,7 @@ function HeaderMenu({ children, data }) {
                 offset={[20, 0]}
                 placement="top-end"
                 interactive={true}
+                hideOnClick={false}
                 onHide={() => {
                     setMenuItems((prev) => prev.slice(0, 1))
                 }}

@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-pascal-case */
 import styles from './Heading.module.scss'
 import classNames from 'classnames/bind'
+import { Link } from 'react-router-dom'
 
 import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
@@ -8,10 +10,13 @@ import ButtonCustomize from '../Button'
 
 import MenuItem from '~/Data/Heading/MenuItem'
 import UserMenuItem from '~/Data/Heading/UserMenuItem'
+import SearchForm from '../Search'
+import HeaderMenu from '../Menu'
+
+import routesConfig from '~/Config/routes'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
-import HeaderMenu from '../Menu'
 
 import Icon_Messages from '~/assets/icons/messages'
 import Icon_Inbox from '~/assets/icons/inbox'
@@ -19,8 +24,6 @@ import Icon_Logo from '~/assets/icons/logo'
 import ImageCustomize from '~/assets/images'
 
 import NotificationBadge from 'react-notification-badge'
-import { Effect } from 'react-notification-badge'
-import SearchForm from '../Search'
 
 const cx = classNames.bind(styles)
 function Heading() {
@@ -30,7 +33,10 @@ function Heading() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('content')}>
-                <Icon_Logo></Icon_Logo>
+                <Link to={routesConfig.home} style={{ display: 'flex' }}>
+                    <Icon_Logo></Icon_Logo>
+                </Link>
+
                 <SearchForm></SearchForm>
 
                 <div className={cx('actions')}>

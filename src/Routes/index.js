@@ -4,11 +4,13 @@ import Upload from '~/pages/Upload'
 import Profiled from '~/pages/Profiled'
 import HeaderOnly from '~/Layout/HeaderOnly'
 
+import routesConfig from '~/Config/routes'
+
 const pubLicRoutes = [
-    { path: '/', component: Home },
-    { path: '/following', component: Following },
-    { path: '/upload', component: Upload, layout: HeaderOnly },
-    { path: '/@:nickname', component: Profiled, layout: HeaderOnly },
+    { path: routesConfig.home, component: Home },
+    { path: routesConfig.following, component: Following },
+    { path: routesConfig.upload, component: Upload, layout: HeaderOnly },
+    { path: routesConfig.profiled, component: Profiled, layout: HeaderOnly },
 ]
 
 const privateRotes = []

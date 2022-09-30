@@ -47,6 +47,12 @@ function SearchForm() {
 
     console.log(searchResult)
 
+    const handledInput = (value) => {
+        if (!value.startsWith(' ')) {
+            setSearchInput(value)
+        }
+    }
+
     return (
         <div>
             <HeadlessTippy
@@ -71,9 +77,7 @@ function SearchForm() {
                     <input
                         placeholder="Search accounts and videos"
                         value={searchInput}
-                        onChange={(e) => {
-                            setSearchInput(e.target.value)
-                        }}
+                        onChange={(e) => handledInput(e.target.value)}
                         onFocus={() => {
                             setClickOutSide(false)
                         }}
@@ -93,7 +97,12 @@ function SearchForm() {
                     )}
 
                     <span className={cx('slash')}></span>
-                    <button className={cx('search-btn')}>
+                    <button
+                        className={cx('search-btn')}
+                        onMouseDown={(e) => {
+                            e.preventDefault()
+                        }}
+                    >
                         <Icon_Search
                             color={searchInput !== '' ? 'rgba(22, 24, 35, .75)' : 'rgba(22, 24, 35, 0.34)'}
                         ></Icon_Search>

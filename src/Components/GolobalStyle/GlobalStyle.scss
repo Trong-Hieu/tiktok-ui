@@ -4,6 +4,7 @@
 
 :root {
     --primary: rgba(254, 44, 85, 1);
+    --primary-font-family: 'ProximaNova', sans-serif;
 }
 
 html {
@@ -12,7 +13,7 @@ html {
 
 body {
     font-size: 1.6rem;
-    font-family: 'ProximaNova', sans-serif;
+    font-family: var(--primary-font-family);
     line-height: 1.5;
     text-rendering: optimizeSpeed;
 }
