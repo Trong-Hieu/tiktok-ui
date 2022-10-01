@@ -2,7 +2,7 @@ import DropdownMenu from '../Dropdown'
 import MenuItem from './MenuItem'
 
 import Tippy from '@tippyjs/react/headless'
-import styles from '~/Components/Heading/Heading.module.scss'
+import styles from './Menu.module.scss'
 import classNames from 'classnames/bind'
 import { useState } from 'react'
 import HeaderLanguage from './HeaderLanguage'
@@ -36,18 +36,20 @@ function HeaderMenu({ children, data }) {
                                     }}
                                 ></HeaderLanguage>
                             )}
-                            {currentMenu.data.map((item, index) => (
-                                <MenuItem
-                                    key={index}
-                                    item={item}
-                                    onClick={() => {
-                                        const isParent = !!item.child
-                                        if (isParent) {
-                                            setMenuItems((prev) => [...prev, { data: item.child }])
-                                        }
-                                    }}
-                                ></MenuItem>
-                            ))}
+                            <div className={cx('content')}>
+                                {currentMenu.data.map((item, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        item={item}
+                                        onClick={() => {
+                                            const isParent = !!item.child
+                                            if (isParent) {
+                                                setMenuItems((prev) => [...prev, { data: item.child }])
+                                            }
+                                        }}
+                                    ></MenuItem>
+                                ))}
+                            </div>
                         </DropdownMenu>
                     </div>
                 )}

@@ -1,1 +1,6 @@
-
+.content {
+    display: flex;
+    flex-direction: column;
+    overflow-y: overlay;
+    max-height: 590px;
+}

@@ -18,6 +18,16 @@ const UserMenuItem = [
     {
         icon: <FontAwesomeIcon icon={faLanguage}></FontAwesomeIcon>,
         title: 'English',
+        child: [
+            {
+                id: 1,
+                title: 'English',
+            },
+            {
+                id: 2,
+                title: 'VietNam',
+            },
+        ],
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion}></FontAwesomeIcon>,

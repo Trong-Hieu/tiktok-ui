@@ -8,7 +8,7 @@ const menuItem = [
         child: [
             {
                 id: 1,
-                title: 'Enlish',
+                title: 'English',
             },
             {
                 id: 2,

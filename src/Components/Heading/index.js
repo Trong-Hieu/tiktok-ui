@@ -13,7 +13,7 @@ import UserMenuItem from '~/Data/Heading/UserMenuItem'
 import SearchForm from '../Search'
 import HeaderMenu from '../Menu'
 
-import routesConfig from '~/Config/routes'
+import config from '~/Config'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
@@ -33,7 +33,7 @@ function Heading() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('content')}>
-                <Link to={routesConfig.home} style={{ display: 'flex' }}>
+                <Link to={config.routes.home} style={{ display: 'flex' }}>
                     <Icon_Logo></Icon_Logo>
                 </Link>
 
@@ -81,10 +81,6 @@ function Heading() {
                             </div>
 
                             <HeaderMenu data={UserMenuItem}>
-                                {/* <img
-                                    className={cx('user-avatar')}
-                                    src="https://p16-sign-sg.tiktokcdn.com/aweme/720x720/tiktok-obj/1667951951969281.jpeg?x-expires=1664172000&x-signature=W30vKZuT%2FdTlEgneG8Gi1FsGHGU%3D"
-                                ></img> */}
                                 <ImageCustomize
                                     className={cx('user-avatar')}
                                     // src="./Heading.module.scss"
