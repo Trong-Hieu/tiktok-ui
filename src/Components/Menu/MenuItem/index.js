@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import styles from './MenuItem.module.scss'
 import ButtonCustomize from '../../Button'
@@ -20,6 +21,11 @@ function MenuItem({ item, onClick }) {
             ></ButtonCustomize>
         </div>
     )
+}
+
+MenuItem.propTypes = {
+    item: PropTypes.object.isRequired,
+    onClick: PropTypes.func,
 }
 
 export default MenuItem

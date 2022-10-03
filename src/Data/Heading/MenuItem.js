@@ -5,16 +5,20 @@ const menuItem = [
     {
         icon: <FontAwesomeIcon icon={faLanguage}></FontAwesomeIcon>,
         title: 'English',
-        child: [
-            {
-                id: 1,
-                title: 'English',
-            },
-            {
-                id: 2,
-                title: 'VietNam',
-            },
-        ],
+        type: 'Laguage',
+        child: {
+            type: 'Laguage',
+            data: [
+                {
+                    id: 1,
+                    title: 'English',
+                },
+                {
+                    id: 2,
+                    title: 'VietNam',
+                },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion}></FontAwesomeIcon>,

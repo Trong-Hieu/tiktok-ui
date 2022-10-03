@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import DropdownMenu from '../Dropdown'
 import MenuItem from './MenuItem'
 
@@ -34,6 +35,7 @@ function HeaderMenu({ children, data }) {
                                     onClick={() => {
                                         setMenuItems((prev) => prev.slice(0, prev.length - 1))
                                     }}
+                                    type={currentMenu.type}
                                 ></HeaderLanguage>
                             )}
                             <div className={cx('content')}>
@@ -44,7 +46,7 @@ function HeaderMenu({ children, data }) {
                                         onClick={() => {
                                             const isParent = !!item.child
                                             if (isParent) {
-                                                setMenuItems((prev) => [...prev, { data: item.child }])
+                                                setMenuItems((prev) => [...prev, item.child])
                                             }
                                         }}
                                     ></MenuItem>
@@ -58,6 +60,11 @@ function HeaderMenu({ children, data }) {
             </Tippy>
         </>
     )
+}
+
+HeaderMenu.propTypes = {
+    children: PropTypes.node.isRequired,
+    data: PropTypes.array.isRequired,
 }
 
 export default HeaderMenu
