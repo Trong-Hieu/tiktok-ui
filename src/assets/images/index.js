@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import imgErrorUrl from './image_error.png'
 import React, { useState } from 'react'
 
@@ -6,7 +7,7 @@ const ImageCustomize = React.forwardRef(({ src, ...props }, ref) => {
     const handleImageError = () => {
         setImageError(imgErrorUrl)
     }
-    console.log(currentImg)
+    // console.log(currentImg)
     return <img {...props} src={currentImg} onError={handleImageError} ref={ref}></img>
 })
 

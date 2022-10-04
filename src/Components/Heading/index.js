@@ -43,8 +43,9 @@ function Heading() {
                     {isUserLogin ? (
                         <>
                             <ButtonCustomize
-                                href="https://www.tiktok.com/foryou?is_copy_url=1&is_from_webapp=v1"
-                                target="_blank"
+                                // href="https://www.tiktok.com/foryou?is_copy_url=1&is_from_webapp=v1"
+                                // target="_blank"
+                                to={config.routes.upload}
                                 children="Upload"
                                 leftIcon={<FontAwesomeIcon icon={faPlus} />}
                             ></ButtonCustomize>

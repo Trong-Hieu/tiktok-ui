@@ -1,0 +1,31 @@
+.item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    color: rgba(22, 24, 35, 1);
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+        border-radius: 4px;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+        transition: background-color ease-in-out 200ms;
+    }
+
+    &.active {
+        background-color: rgba(22, 24, 35, 0.03);
+        border-radius: 4px;
+        color: rgba(254, 44, 85, 1);
+    }
+}
+
+.item-title {
+    font-family: var(--primary-font-family);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+
+    margin-left: 8px;
+}
