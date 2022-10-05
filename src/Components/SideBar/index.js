@@ -12,11 +12,11 @@ function SideBar() {
         <aside className={cs('side-bar')}>
             <NarSide></NarSide>
             <SuggestedAccountWrapper tittle="Suggested accounts" footer="See all">
-                <AccountItem></AccountItem>
-                <AccountItem></AccountItem>
-                <AccountItem></AccountItem>
-                <AccountItem></AccountItem>
-                <AccountItem></AccountItem>
+                <AccountItem isNeedTippy></AccountItem>
+                <AccountItem isNeedTippy></AccountItem>
+                <AccountItem isNeedTippy></AccountItem>
+                <AccountItem isNeedTippy></AccountItem>
+                <AccountItem isNeedTippy></AccountItem>
             </SuggestedAccountWrapper>
             <FollowingAccountWrapper tittle="Following accounts" footer="See more">
                 <AccountItem></AccountItem>

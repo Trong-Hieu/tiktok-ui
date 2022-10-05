@@ -4,8 +4,16 @@ import styles from './Dropdown.module.scss'
 
 const cx = classNames.bind(styles)
 
-function Dropdown({ children }) {
-    return <div className={cx('wrapper')}>{children}</div>
+function Dropdown({ children, className }) {
+    return (
+        <div
+            className={cx('wrapper', {
+                [className]: className,
+            })}
+        >
+            {children}
+        </div>
+    )
 }
 
 Dropdown.prototypes = {
