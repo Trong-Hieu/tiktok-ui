@@ -14,7 +14,7 @@ function HeaderMenu({ children, data }) {
     const [menuItem, setMenuItems] = useState([{ data }])
     const currentMenu = menuItem[menuItem.length - 1]
 
-    console.log(menuItem)
+    // console.log(menuItem)
 
     return (
         <>

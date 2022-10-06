@@ -45,7 +45,7 @@ function SearchForm() {
         fetchSearch()
     }, [debounce])
 
-    console.log(searchResult)
+    // console.log(searchResult)
 
     const handledInput = (value) => {
         if (!value.startsWith(' ')) {

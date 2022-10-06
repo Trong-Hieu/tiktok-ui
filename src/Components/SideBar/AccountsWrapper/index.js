@@ -4,12 +4,14 @@ import styles from './AccountsWrapper.module.scss'
 
 const cx = classNames.bind(styles)
 
-function AccountWrapper({ children, tittle, footer }) {
+function AccountWrapper({ children, tittle, footer, onClick }) {
     return (
         <div className={cx('wrapper')}>
             <p className={cx('title')}>{tittle}</p>
             {children}
-            <p className={cx('footer')}>{footer}</p>
+            <p className={cx('footer')} onClick={onClick}>
+                {footer}
+            </p>
         </div>
     )
 }
