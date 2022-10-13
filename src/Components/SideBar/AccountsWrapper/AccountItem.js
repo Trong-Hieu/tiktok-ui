@@ -41,9 +41,9 @@ function AccountItem({ data, isNeedTippy }) {
                                     </a>
                                 </div>
                                 <div className={cx('tippy-end')}>
-                                    <span className={cx('tippy-numer')}>7.5M</span>
+                                    <span className={cx('tippy-numer')}>{data.followers_count}</span>
                                     <span className={cx('tippy-unit')}>Followers</span>
-                                    <span className={cx('tippy-numer')}>517.1M</span>
+                                    <span className={cx('tippy-numer')}>{data.likes_count}</span>
                                     <span className={cx('tippy-unit')}>Likes</span>
                                 </div>
                             </div>

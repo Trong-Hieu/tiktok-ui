@@ -85,7 +85,7 @@ function Heading() {
                                 <ImageCustomize
                                     className={cx('user-avatar')}
                                     // src="./Heading.module.scss"
-                                    src="https://p16-sign-sg.tiktokcdn.com/aweme/720x720/tiktok-obj/1667951951969281.jpeg?x-expires=1664172000&x-signature=W30vKZuT%2FdTlEgneG8Gi1FsGHGU%3D"
+                                    src="https://p16-sign-sg.tiktokcdn.com/aweme/720x720/tiktok-obj/1667951951969281.jpeg?x-expires=1665712800&x-signature=fMm6JdWCBZWz09fZUk4UzyqnuDc%3D"
                                 ></ImageCustomize>
                             </HeaderMenu>
                         </>
