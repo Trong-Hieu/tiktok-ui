@@ -1,4 +1,4 @@
-function Icon_Close({ width: width = '1em', height: height = '1em', color: color = 'currentColor', className }) {
+function Icon_Close({ width = '1em', height = '1em', color = 'currentColor', className, onClick }) {
     return (
         <svg
             // class="tiktok-1anes8e-StyledIcon e1gjoq3k3"
@@ -8,6 +8,7 @@ function Icon_Close({ width: width = '1em', height: height = '1em', color: color
             fill={color}
             xmlns="http://www.w3.org/2000/svg"
             className={className}
+            onClick={onClick}
         >
             <path
                 fillRule="evenodd"

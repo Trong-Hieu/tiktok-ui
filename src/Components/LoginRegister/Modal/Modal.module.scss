@@ -47,10 +47,22 @@
 
         cursor: pointer;
     }
+    .back-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+        // transform: scale(1.7);
+
+        position: absolute;
+        top: 15px;
+        left: 15px;
+    }
 }
 
-.content {
-    // height: 100%;
+.body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-grow: 1;
 }
 
 .footer {
@@ -59,6 +71,7 @@
     justify-content: center;
     align-items: center;
     min-height: 64px;
+    max-height: 64px;
     border-top: 1px solid rgba(22, 24, 35, 0.12);
 
     font-family: var(--primary-font-family);
@@ -74,4 +87,8 @@
     color: var(--primary-color);
     font-weight: 600;
     z-index: 10000;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }

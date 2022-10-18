@@ -1,10 +1,10 @@
-function Icon_Inbox({ width: width = '1em', height: height = '1em', color: color = 'currentColor', className }) {
+function Icon_Inbox({ width = '1em', height = '1em', color = 'currentColor', className }) {
     return (
         <svg
             className={className}
             width={width}
             height={height}
-            viewBox="0 0 32 32"
+            viewBox="5 3 25 25"
             fill={color}
             xmlns="http://www.w3.org/2000/svg"
         >

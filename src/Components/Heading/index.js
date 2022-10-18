@@ -28,7 +28,7 @@ import ModalLogin from '../LoginRegister/Modal'
 
 const cx = classNames.bind(styles)
 function Heading() {
-    const isUserLogin = true
+    const isUserLogin = false
     const notificationCount = 10
 
     return (
@@ -54,34 +54,24 @@ function Heading() {
 
                                 <Tippy content="Messages">
                                     <ButtonCustomize
-                                        middleIcon={
-                                            <Icon_Messages
-                                                width="1.5em"
-                                                height="2em"
-                                                className={cx('icon-message')}
-                                            ></Icon_Messages>
-                                        }
+                                        className={cx('icon-message')}
+                                        middleIcon={<Icon_Messages width="1em" height="1em"></Icon_Messages>}
                                     ></ButtonCustomize>
                                 </Tippy>
 
-                                <div style={{ marginLeft: '16px' }} className={cx('inbox')}>
-                                    <NotificationBadge
+                                {/* <div style={{ marginLeft: '16px' }} className={cx('inbox')}> */}
+                                {/* <NotificationBadge
                                         // count={notificationCount}
                                         className={cx('inbox-badge')}
                                         style={{ top: '-5px', right: '-10px' }}
-                                    />
-                                    <Tippy content="Inbox">
-                                        <ButtonCustomize
-                                            middleIcon={
-                                                <Icon_Inbox
-                                                    width="2em"
-                                                    height="2em"
-                                                    className={cx('icon-message')}
-                                                ></Icon_Inbox>
-                                            }
-                                        ></ButtonCustomize>
-                                    </Tippy>
-                                </div>
+                                    /> */}
+                                <Tippy content="Inbox">
+                                    <ButtonCustomize
+                                        className={cx('icon-inbox')}
+                                        middleIcon={<Icon_Inbox width="1em" height="1em"></Icon_Inbox>}
+                                    ></ButtonCustomize>
+                                </Tippy>
+                                {/* </div> */}
 
                                 <HeaderMenu data={UserMenuItem}>
                                     <ImageCustomize

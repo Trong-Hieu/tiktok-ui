@@ -65,7 +65,7 @@ const ButtonCustomize = React.forwardRef(
         return (
             <Component className={classes} {...props} ref={ref}>
                 {leftIcon && <span className={cx('left-Icon')}>{leftIcon}</span>}
-                <span>{children || middleIcon}</span>
+                {children || middleIcon}
                 {rightIcon && <span className={cx('right-Icon')}>{rightIcon}</span>}
             </Component>
         )
