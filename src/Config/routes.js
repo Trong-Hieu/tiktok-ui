@@ -6,8 +6,8 @@ const routesConfig = {
     live: '/live',
     login: '/login',
     loginByQr: '/login/qr',
-    loginByUsername: '/login/user-or-phone/user',
-    loginByPhone: '/login/user-or-phone/phone',
+    loginByEmail: '/login/phone-or-email/email',
+    loginByPhone: '/login/phone-or-email/phone',
 }
 
 export default routesConfig

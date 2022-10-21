@@ -7,6 +7,18 @@
     text-align: center;
 }
 
+.introduce-text {
+    // margin-top: 12px;
+    margin-bottom: 32px;
+    width: 375px;
+
+    color: rgba(22, 24, 35, 0.34);
+    font-size: 15px;
+    font-family: var(--primary-font-family);
+    line-height: 18px;
+    text-align: center;
+}
+
 .list-container {
     display: flex;
     flex-direction: column;

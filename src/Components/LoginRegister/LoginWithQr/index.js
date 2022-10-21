@@ -1,17 +1,20 @@
 /* eslint-disable jsx-a11y/alt-text */
 import classNames from 'classnames/bind'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
+import config from '~/Config'
 import styles from './LoginWithQr.module.scss'
 import qrcodeURL from '~/assets/images/QRCode.png'
 import ButtonCustomize from '~/Components/Button'
 import Icon_QRReload from '~/assets/icons/qrReload'
 import Icon_QRScan from '~/assets/icons/qrScan'
 import Icon_QRAddAccount from '~/assets/icons/qrAddAccount'
+import Icon_LeftChevron from '~/assets/icons/leftChevron'
 
 const cx = classNames.bind(styles)
 
-function LoginWithQR() {
+function LoginWithQR({ isInModal }) {
     return (
         <div className={cx('container')}>
             <div className={cx('title')}>Log in with QR code</div>
@@ -44,6 +47,12 @@ function LoginWithQR() {
                     src="https://lf16-tiktok-web.ttwstatic.com/obj/tiktok-web/tiktok/webapp/main/webapp-desktop/b6d3cc69d3525571aef0.gif"
                 ></img>
             </div>
+            {!isInModal && (
+                <Link className={cx('go-back')} to={config.routes.login}>
+                    <Icon_LeftChevron></Icon_LeftChevron>
+                    Go back
+                </Link>
+            )}
         </div>
     )
 }

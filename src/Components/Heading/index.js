@@ -2,6 +2,7 @@
 import styles from './Heading.module.scss'
 import classNames from 'classnames/bind'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
@@ -30,6 +31,11 @@ const cx = classNames.bind(styles)
 function Heading() {
     const isUserLogin = false
     const notificationCount = 10
+    const [isShowModalLogin, setisShowModalLogin] = useState(false)
+
+    const handleShowModalLogin = () => {
+        setisShowModalLogin(!isShowModalLogin)
+    }
 
     return (
         <>
@@ -90,7 +96,7 @@ function Heading() {
                                     leftIcon={<FontAwesomeIcon icon={faPlus} />}
                                 ></ButtonCustomize>
                                 <ButtonCustomize
-                                    onClick={() => alert('Dang nhap')}
+                                    onClick={handleShowModalLogin}
                                     children="Log in"
                                     primary
                                 ></ButtonCustomize>
@@ -111,7 +117,7 @@ function Heading() {
                 </div>
             </header>
 
-            <ModalLogin></ModalLogin>
+            {isShowModalLogin && <ModalLogin onClick={handleShowModalLogin}></ModalLogin>}
         </>
     )
 }

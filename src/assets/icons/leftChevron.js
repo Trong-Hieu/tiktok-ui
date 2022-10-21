@@ -1,7 +1,6 @@
 function Icon_LeftChevron({ width = '1em', height = '1em', color = 'currentColor', className, onClick }) {
     return (
         <svg
-            class="tiktok-1i5fgpz-StyledChevronLeftOffset eg439om1"
             width={width}
             height={height}
             viewBox="0 0 48 48"

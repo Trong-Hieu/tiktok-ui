@@ -1,0 +1,117 @@
+.wrapper {
+    display: flex;
+    // justify-content: center;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px;
+    width: 100%;
+    height: 60px;
+    background-color: white;
+
+    z-index: 1000;
+    position: fixed;
+}
+
+.feedback-and-help {
+    font-size: 20px;
+    font-family: var(--primary-font-family);
+    font-weight: 600;
+    line-height: 17px;
+    color: rgba(22, 24, 35, 0.5);
+
+    display: flex;
+    align-items: center;
+
+    span {
+        margin-left: 7px;
+        font-size: 14px;
+        color: rgba(22, 24, 35, 1);
+    }
+}
+
+.body {
+    margin-top: 60px;
+    margin-bottom: 148px;
+    height: 100%;
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    z-index: 1000;
+    position: fixed;
+    bottom: 0px;
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 64px;
+    max-height: 64px;
+    width: 100%;
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+    background-color: white;
+
+    font-family: var(--primary-font-family);
+    line-height: 18px;
+    font-size: 15px;
+}
+
+.bottom-text {
+}
+
+.bottom-href {
+    margin-left: 5px;
+    color: var(--primary-color);
+    font-weight: 600;
+    z-index: 10000;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.underneath {
+    width: 100%;
+    height: 84px;
+    background-color: rgba(18, 18, 18, 1);
+    padding: 0px 144px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.language {
+    width: 172px;
+    height: 36px;
+    border: 1px solid #8a8b91;
+    border-radius: 2px;
+
+    p {
+        color: rgba(255, 255, 255, 1);
+        margin: 8px 17.6px 8px 4px;
+        padding-left: 13px;
+        font-size: 14px;
+        font-family: var(--primary-font-family);
+    }
+}
+
+.copy-right {
+    color: #8a8b91;
+    font-size: 14px;
+    font-family: SofiaPro;
+    font-weight: 500;
+    line-height: 28px;
+}

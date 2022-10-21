@@ -1,7 +1,6 @@
 function Icon_QRReload({ width = '1em', height = '1em', color = 'currentColor', className, onClick }) {
     return (
         <svg
-            class="tiktok-2bjvhf-StyledRefreshIcon eot7zvz11"
             width={width}
             height={height}
             viewBox="0 0 48 48"
