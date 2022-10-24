@@ -10,19 +10,24 @@ import ButtonCustomize from '~/Components/Button'
 const cx = classNames.bind(style)
 
 function FollowingAccounts({ onClick }) {
+    const [currentUser, setCurrentUser] = useState(() => {
+        let user = JSON.parse(localStorage.getItem('currentUser'))
+        if (user != null) return user
+        else return null
+    })
+
     const [followingAccounts, setfollowingAccounts] = useState([])
-    const isUserLogin = false
 
     const [perPage, setPerPage] = useState(5)
     const [footer, setFooter] = useState('See all')
 
-    console.log(followingAccounts)
+    // console.log(followingAccounts)
 
     useEffect(() => {
         AccountsService.getFollowingAccounts()
             .then((response) => {
                 setfollowingAccounts(response)
-                console.log('re-render')
+                // console.log('re-render')
             })
             .catch((err) => {
                 console.log(err)
@@ -41,7 +46,7 @@ function FollowingAccounts({ onClick }) {
 
     return (
         <>
-            {isUserLogin ? (
+            {currentUser ? (
                 <div>
                     <AccountWrapper tittle="Following accounts" footer="See more" onClick={handleViewSuggestedAccount}>
                         {followingAccounts.map((data) => (

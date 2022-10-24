@@ -80,7 +80,9 @@ function LoginWithPhone({ getType, isInModal }) {
                 </>
             )}
 
-            <ButtonCustomize className={cx('btn-submit')}>Log in</ButtonCustomize>
+            <ButtonCustomize disabled className={cx('btn-submit')}>
+                Log in
+            </ButtonCustomize>
 
             {!isInModal && (
                 <Link className={cx('go-back')} to={config.routes.login}>

@@ -75,7 +75,12 @@
 .disabled {
     cursor: default;
     pointer-events: none;
-    opacity: 0.5;
+
+    // add from login btn
+    background-color: rgba(22, 24, 35, 0.06);
+    color: rgba(22, 24, 35, 0.34);
+    border: none;
+    border-radius: 4px;
 }
 .left-Icon {
     margin-right: 8px;

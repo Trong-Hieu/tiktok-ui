@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind'
+import { useState } from 'react'
 
 import styles from './Sidebar.module.scss'
 import NarSide from './NarSide'
@@ -8,13 +9,17 @@ import FollowingAccounts from './FollowingAccounts'
 const cs = classNames.bind(styles)
 
 function SideBar({ onClick }) {
-    const isUserLogin = false
+    const [currentUser, setCurrentUser] = useState(() => {
+        let user = JSON.parse(localStorage.getItem('currentUser'))
+        if (user != null) return user
+        else return null
+    })
 
     return (
         <aside className={cs('side-bar')}>
             <NarSide></NarSide>
 
-            {isUserLogin ? (
+            {currentUser ? (
                 <>
                     <SuggestedAccounts></SuggestedAccounts>
                     <FollowingAccounts></FollowingAccounts>

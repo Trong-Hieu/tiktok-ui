@@ -24,10 +24,17 @@ import Icon_Logo from '~/assets/icons/logo'
 import ImageCustomize from '~/assets/images'
 
 import NotificationBadge from 'react-notification-badge'
+import { useState } from 'react'
 
 const cx = classNames.bind(styles)
 function Heading({ onClick }) {
-    const isUserLogin = false
+    const [currentUser, setCurrentUser] = useState(() => {
+        let user = JSON.parse(localStorage.getItem('currentUser'))
+        if (user != null) return user
+        else return null
+    })
+
+    console.log(currentUser)
     const notificationCount = 10
 
     return (
@@ -41,7 +48,7 @@ function Heading({ onClick }) {
                     <SearchForm></SearchForm>
 
                     <div className={cx('actions')}>
-                        {isUserLogin ? (
+                        {currentUser ? (
                             <>
                                 <ButtonCustomize
                                     // href="https://www.tiktok.com/foryou?is_copy_url=1&is_from_webapp=v1"
@@ -76,7 +83,7 @@ function Heading({ onClick }) {
                                     <ImageCustomize
                                         className={cx('user-avatar')}
                                         // src="./Heading.module.scss"
-                                        src="https://p16-sign-sg.tiktokcdn.com/aweme/720x720/tiktok-obj/1667951951969281.jpeg?x-expires=1665712800&x-signature=fMm6JdWCBZWz09fZUk4UzyqnuDc%3D"
+                                        src={currentUser.data.avatar}
                                     ></ImageCustomize>
                                 </HeaderMenu>
                             </>
