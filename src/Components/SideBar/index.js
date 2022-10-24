@@ -7,12 +7,24 @@ import FollowingAccounts from './FollowingAccounts'
 
 const cs = classNames.bind(styles)
 
-function SideBar() {
+function SideBar({ onClick }) {
+    const isUserLogin = false
+
     return (
         <aside className={cs('side-bar')}>
             <NarSide></NarSide>
-            <SuggestedAccounts></SuggestedAccounts>
-            <FollowingAccounts></FollowingAccounts>
+
+            {isUserLogin ? (
+                <>
+                    <SuggestedAccounts></SuggestedAccounts>
+                    <FollowingAccounts></FollowingAccounts>
+                </>
+            ) : (
+                <>
+                    <FollowingAccounts onClick={onClick}></FollowingAccounts>
+                    <SuggestedAccounts></SuggestedAccounts>
+                </>
+            )}
         </aside>
     )
 }

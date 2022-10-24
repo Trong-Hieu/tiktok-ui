@@ -2,7 +2,6 @@
 import styles from './Heading.module.scss'
 import classNames from 'classnames/bind'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 
 import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
@@ -25,17 +24,11 @@ import Icon_Logo from '~/assets/icons/logo'
 import ImageCustomize from '~/assets/images'
 
 import NotificationBadge from 'react-notification-badge'
-import ModalLogin from '../LoginRegister/Modal'
 
 const cx = classNames.bind(styles)
-function Heading() {
+function Heading({ onClick }) {
     const isUserLogin = false
     const notificationCount = 10
-    const [isShowModalLogin, setisShowModalLogin] = useState(false)
-
-    const handleShowModalLogin = () => {
-        setisShowModalLogin(!isShowModalLogin)
-    }
 
     return (
         <>
@@ -95,11 +88,7 @@ function Heading() {
                                     children="Upload"
                                     leftIcon={<FontAwesomeIcon icon={faPlus} />}
                                 ></ButtonCustomize>
-                                <ButtonCustomize
-                                    onClick={handleShowModalLogin}
-                                    children="Log in"
-                                    primary
-                                ></ButtonCustomize>
+                                <ButtonCustomize onClick={onClick} children="Log in" primary></ButtonCustomize>
                                 {/* <div className={cx('dropdown-menu')}> */}
                                 <HeaderMenu data={MenuItem}>
                                     <div style={{ marginLeft: '16px' }}>
@@ -116,8 +105,6 @@ function Heading() {
                     </div>
                 </div>
             </header>
-
-            {isShowModalLogin && <ModalLogin onClick={handleShowModalLogin}></ModalLogin>}
         </>
     )
 }
