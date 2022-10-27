@@ -44,6 +44,7 @@ const UserMenuItem = [
         icon: <FontAwesomeIcon icon={faRightFromBracket}></FontAwesomeIcon>,
         title: 'Log out',
         separate: 'true',
+        to: '/logout',
     },
 ]
 

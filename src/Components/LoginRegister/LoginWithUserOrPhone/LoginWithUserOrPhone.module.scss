@@ -116,6 +116,7 @@
     font-family: var(--primary-font-family);
 
     width: 70%;
+    caret-color: var(--primary-color);
 }
 
 .btn-send-code {
@@ -135,9 +136,16 @@
 .showpass {
     padding-right: 16px;
     font-size: 20px;
+    cursor: pointer;
+
+    .icon-warning-error {
+        font-size: 14px;
+        vertical-align: middle;
+    }
 
     .icon-showpass {
         vertical-align: middle;
+        margin-left: 16px;
     }
 }
 
@@ -182,4 +190,21 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+
+.error {
+    border: 1px solid rgb(255, 76, 58) !important;
+
+    input {
+        color: rgb(255, 76, 58) !important;
+    }
+}
+
+.error-text {
+    margin-bottom: 4px;
+
+    font-size: 12px;
+    font-family: var(--primary-font-family);
+    line-height: 15px;
+    color: rgb(255, 76, 58);
 }

@@ -12,6 +12,7 @@ import LoginWithPhone from '~/Components/LoginRegister/LoginWithUserOrPhone/logi
 
 import HeaderOnly from '~/Layout/HeaderOnly'
 import LoginLayout from '~/Layout/LoginLayout'
+import Logout from '~/pages/Logout'
 
 const pubLicRoutes = [
     { path: config.routes.home, component: Home },
@@ -23,6 +24,7 @@ const pubLicRoutes = [
     { path: config.routes.loginByQr, component: LoginWithQr, layout: LoginLayout },
     { path: config.routes.loginByEmail, component: LoginWithEmail, layout: LoginLayout },
     { path: config.routes.loginByPhone, component: LoginWithPhone, layout: LoginLayout },
+    { path: 'logout', component: Logout, layout: LoginLayout },
 ]
 
 const privateRotes = []
