@@ -15,8 +15,17 @@ function SideBar({ onClick }) {
         else return null
     })
 
+    const [isMouseOver, setIsMouseOver] = useState(false)
+
     return (
-        <aside className={cs('side-bar')}>
+        <aside
+            className={cs('side-bar')}
+            style={{ overflow: isMouseOver ? 'scroll' : 'hidden' }}
+            onMouseOver={() => setIsMouseOver(true)}
+            onMouseOut={() => {
+                setIsMouseOver(false)
+            }}
+        >
             <NarSide></NarSide>
 
             {currentUser ? (

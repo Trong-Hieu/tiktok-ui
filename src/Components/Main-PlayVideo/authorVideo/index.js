@@ -18,87 +18,80 @@ import Icon_Share from '~/assets/icons/share'
 
 const cx = classNames.bind(styles)
 
-function RenderVideo() {
-    const [isControlBtns, setIsControlBtns] = useState(true)
-    const [isVolumeBar, setisVolumeBar] = useState(true)
-    const [isVideoPaused, setIsVideoPause] = useState(true)
-    const [isVideoMuted, setIsVideoMuted] = useState(true)
+function RenderVideo({ index, scrollY, data, ...props }) {
+    const [isControlBtns, setIsControlBtns] = useState(false)
+    const [isVolumeBar, setisVolumeBar] = useState(false)
+
     const [circlePosY, setCirclePosY] = useState(0) // từ 0 đến -36
     const videoRef = useRef()
-    const circleVolumeRef = useRef(null)
-    const [volume, setvolume] = useState(0)
-    const [volumeBeforeMute, setVolumeBeforeMute] = useState(100)
+
+    const [isPlaying, setIsPlaying] = useState(false)
+
+    const ref = useRef()
 
     // console.log('y: ' + circlePosY)
+    // console.log(posY)
+
     if (circlePosY > 0) setCirclePosY(0)
     else if (circlePosY < -36) setCirclePosY(-36)
 
-    const handlePlayPauseVideo = () => {
-        // console.log(circleVolumeRef)
-
-        if (videoRef.current.paused) {
-            setIsVideoPause(true)
+    if (videoRef.current) {
+        if (props.isVideoPaused) {
             videoRef.current.play()
-        } else {
-            videoRef.current.pause()
-            setIsVideoPause(false)
-        }
+        } else videoRef.current.pause()
     }
 
-    const handleMuteVideo = () => {
-        if (isVideoMuted === true) {
-            setIsVideoMuted(false)
-            setvolume(volumeBeforeMute)
-            // console.log(volume)
-            videoRef.current.volume = volumeBeforeMute / 100
-        } else {
-            setIsVideoMuted(true)
-            if (volume === 0) setVolumeBeforeMute(50)
-            else setVolumeBeforeMute(volume)
-            setvolume(0)
-            // videoRef.current.volume = 0
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.volume = props.currentVolume
+            // console.log(videoRef.current.volume)
+            if (props.isVideoPaused) {
+                videoRef.current.play()
+            } else videoRef.current.pause()
         }
-    }
+    }, [props.currentVolume, props.isVideoPaused])
 
-    const handleVolumeSound = (value) => {
-        setvolume(value)
-        videoRef.current.volume = value / 100
-        if (value > 0) setIsVideoMuted(false)
-        else setIsVideoMuted(true)
-    }
+    useEffect(() => {
+        let posY = index * ref.current.clientHeight - scrollY + 60 + 24
+        console.log(ref.current.clientHeight + '-' + posY)
+        if (
+            (posY >= 0 && posY <= ref.current.clientHeight / 2) ||
+            (posY <= 0 && posY >= -ref.current.clientHeight / 2)
+        ) {
+            setIsPlaying(true)
+        } else {
+            setIsPlaying(false)
+        }
+    }, [scrollY, index])
 
     return (
-        <div className={cx('container')}>
+        <div className={cx('container')} ref={ref}>
             {/* <Link className={cx('container')} to=""> */}
             {/* phần thông tin của video */}
-            <ImageCustomize src={srcAuthorAvatar} className={cx('author-avatar')}></ImageCustomize>
+            <ImageCustomize src={data.user.avatar} className={cx('author-avatar')}></ImageCustomize>
             <div className={cx('content')}>
                 <div className={cx('infor')}>
                     <Link className={cx('author-names')} to="">
                         <h3 className={cx('name')}>
-                            Bao ly
-                            <Icon_BlueTick className={cx('icon-blue-tick')}></Icon_BlueTick>
+                            {data.user.first_name} {data.user.last_name}
+                            {data.user.tick && <Icon_BlueTick className={cx('icon-blue-tick')}></Icon_BlueTick>}
                         </h3>
-                        <h4 className={cx('nickname')}>A lyy 👀🐱‍🚀</h4>
+                        <h4 className={cx('nickname')}>{data.user.nickname}</h4>
                     </Link>
                     <ButtonCustomize outline className={cx('btn-follow')}>
                         Follow
                     </ButtonCustomize>
-                    <div className={cx('description')}>Clip hôm qua bị cảnh báo nên nay quay bù</div>
+                    <div className={cx('description')}>{data.description}</div>
                     <h4 className={cx('music')}>
                         <Link to="">
-                            <Icon_Music className={cx('icon_music')}></Icon_Music>Quẩy Theo Pháp Sư Trung Hoa - Face
-                            Remix - VGEE
+                            <Icon_Music className={cx('icon_music')}></Icon_Music>
+                            {data.music}
                         </Link>
                     </h4>
                 </div>
 
                 {/* Phần Video */}
                 <div className={cx('video-container')}>
-                    {/* <img
-                        src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/bec8cda1a29b4e9a858507cdab261196_1667307263~tplv-f5insbecw7-1:720:720.jpeg?x-expires=1667808000&x-signature=1gTKHUYzd2a%2FCp05ZsN8HiiqyQs%3D"
-                        loading="lazy"
-                    ></img> */}
                     <div
                         className={cx('video')}
                         onMouseOver={() => {
@@ -108,9 +101,15 @@ function RenderVideo() {
                             setIsControlBtns(false)
                         }}
                     >
-                        <video autoPlay loop muted={isVideoMuted} ref={videoRef}>
-                            <source src={srcVideo} type="video/mp4"></source>
-                        </video>
+                        {isPlaying ? (
+                            <>
+                                <video loop muted={props.isVideoMuted} ref={videoRef}>
+                                    <source src={data.file_url} type="video/mp4"></source>
+                                </video>
+                            </>
+                        ) : (
+                            <img className={cx('thumbnail')} src={data.thumb_url} loading="lazy" alt=""></img>
+                        )}
 
                         {/* Các nút control video */}
 
@@ -119,8 +118,8 @@ function RenderVideo() {
                                 <div className={cx('report-btn')}>
                                     <Icon_Report className={cx('icon-report-btn')}></Icon_Report>Report
                                 </div>
-                                <div className={cx('pause-play-btn')} onClick={handlePlayPauseVideo}>
-                                    <Icon_PauseVideo pause={isVideoPaused}></Icon_PauseVideo>
+                                <div className={cx('pause-play-btn')} onClick={props.onClickPause}>
+                                    <Icon_PauseVideo pause={props.isVideoPaused}></Icon_PauseVideo>
                                 </div>
                                 <div
                                     className={cx('mute-btn')}
@@ -137,13 +136,16 @@ function RenderVideo() {
                                                 type="range"
                                                 min="0"
                                                 max="100"
-                                                value={volume}
+                                                value={props.volume}
                                                 className={cx('volumn-progress')}
-                                                onChange={(e) => handleVolumeSound(e.target.value)}
+                                                onChange={(e) => props.onChange(e.target.value)}
                                             ></input>
                                         </div>
                                     )}
-                                    <Icon_VideoSound mute={isVideoMuted} onClick={handleMuteVideo}></Icon_VideoSound>
+                                    <Icon_VideoSound
+                                        mute={props.isVideoMuted}
+                                        onClick={props.onClickMute}
+                                    ></Icon_VideoSound>
                                 </div>
                             </>
                         )}
@@ -155,19 +157,19 @@ function RenderVideo() {
                             <div className={cx('icon-wrap')}>
                                 <Icon_Like></Icon_Like>
                             </div>
-                            21M
+                            {data.likes_count}
                         </div>
                         <div className={cx('btn')}>
                             <div className={cx('icon-wrap')}>
                                 <Icon_Comment></Icon_Comment>
                             </div>
-                            12.3k
+                            {data.comments_count}
                         </div>
                         <div className={cx('btn')}>
                             <div className={cx('icon-wrap')}>
                                 <Icon_Share></Icon_Share>
                             </div>
-                            5678
+                            {data.shares_count}
                         </div>
                     </div>
                 </div>

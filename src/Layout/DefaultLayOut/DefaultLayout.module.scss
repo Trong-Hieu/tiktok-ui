@@ -7,8 +7,8 @@
 .container {
     // background-color: #ccc;
     width: 1150px;
-    display: flex;
-    justify-content: space-between;
+    // display: flex;
+    // justify-content: space-between;
     min-height: 1000px;
 
     margin-top: 60px;
@@ -18,4 +18,9 @@
     width: 692px;
     margin: 0 16px;
     padding: 24px 0px;
+    float: right;
+    // flex: 1;
+    // margin-left: 348px;
+    // display: flex;
+    // flex-direction: row-reverse;
 }

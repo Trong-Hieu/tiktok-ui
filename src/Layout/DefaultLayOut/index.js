@@ -20,7 +20,14 @@ function DefaultLayout({ children }) {
             <Heading onClick={handleShowModalLogin} />
             <div className={cs('container')}>
                 <SideBar onClick={handleShowModalLogin} />
-                <div className={cs('contain')}>{children}</div>
+                <div
+                    className={cs('contain')}
+                    onScroll={() => {
+                        console.log('scroll')
+                    }}
+                >
+                    {children}
+                </div>
             </div>
 
             {isShowModalLogin && <ModalLogin onClick={handleShowModalLogin}></ModalLogin>}
