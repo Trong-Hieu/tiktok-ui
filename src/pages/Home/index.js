@@ -6,12 +6,7 @@ const cx = classNames.bind(styles)
 
 function Home() {
     return (
-        <div
-            className={cx('for-you')}
-            onScroll={() => {
-                console.log('scroll')
-            }}
-        >
+        <div className={cx('for-you')}>
             <MainPlayVideo></MainPlayVideo>
         </div>
     )

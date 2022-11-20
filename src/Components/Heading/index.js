@@ -27,7 +27,7 @@ import NotificationBadge from 'react-notification-badge'
 import { useState } from 'react'
 
 const cx = classNames.bind(styles)
-function Heading({ onClick }) {
+function Heading({ onClick, width = '1150px' }) {
     const [currentUser, setCurrentUser] = useState(() => {
         let user = JSON.parse(localStorage.getItem('currentUser'))
         if (user != null) return user
@@ -40,7 +40,7 @@ function Heading({ onClick }) {
     return (
         <>
             <header className={cx('wrapper')}>
-                <div className={cx('content')}>
+                <div className={cx('content')} style={{ width: width }}>
                     <Link to={config.routes.home} style={{ display: 'flex' }}>
                         <Icon_Logo></Icon_Logo>
                     </Link>

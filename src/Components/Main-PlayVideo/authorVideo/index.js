@@ -53,7 +53,7 @@ function RenderVideo({ index, scrollY, data, ...props }) {
 
     useEffect(() => {
         let posY = index * ref.current.clientHeight - scrollY + 60 + 24
-        console.log(ref.current.clientHeight + '-' + posY)
+        // console.log(ref.current.clientHeight + '-' + posY)
         if (
             (posY >= 0 && posY <= ref.current.clientHeight / 2) ||
             (posY <= 0 && posY >= -ref.current.clientHeight / 2)

@@ -6,6 +6,7 @@ import styles from './LoginLayout.module.scss'
 
 import Icon_Logo from '~/assets/icons/logo'
 import Icon_Quest from '~/assets/icons/quest'
+import Footer from '~/Components/footer'
 
 const cx = classNames.bind(styles)
 
@@ -22,19 +23,16 @@ function LoginLayout({ children }) {
                 </Link>
             </header>
             <div className={cx('body')}>{children}</div>
+
             <div className={cx('footer')}>
-                <div className={cx('bottom')}>
-                    <div className={cx('bottom-text')}>Don’t have an account?</div>
-                    <a className={cx('bottom-href')} href="" onClick={() => alert('bitch')}>
+                <div className={cx('sign-up')}>
+                    <div className={cx('sign-up-text')}>Don’t have an account?</div>
+                    <a className={cx('sign-up-href')} href="" onClick={() => alert('bitch')}>
                         Sign up
                     </a>
                 </div>
-                <div className={cx('underneath')}>
-                    <div className={cx('language')}>
-                        <p>English</p>
-                    </div>
-                    <div className={cx('copy-right')}>© 2022 TikTok</div>
-                </div>
+
+                <Footer></Footer>
             </div>
         </div>
     )

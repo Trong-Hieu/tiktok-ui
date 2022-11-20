@@ -1,9 +1,7 @@
+import UploadVideo from '~/Components/UploadVideo'
+
 function Upload() {
-    return (
-        <div>
-            <h1>Upload page</h1>
-        </div>
-    )
+    return <UploadVideo></UploadVideo>
 }
 
 export default Upload

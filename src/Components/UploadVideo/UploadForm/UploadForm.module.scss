@@ -1,0 +1,141 @@
+.upload-form {
+    margin-left: 24px;
+    width: 100%;
+}
+
+.caption {
+}
+
+.caption-text {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-title {
+    font-size: 16px;
+    font-family: var(--primary-font-family);
+    font-weight: 600;
+    line-height: 1.5;
+    color: #161823;
+}
+
+.letters-count {
+    font-size: 13px;
+    font-family: var(--primary-font-family);
+    font-weight: 400;
+    line-height: 17px;
+    color: rgba(22, 24, 35, 0.5);
+}
+
+.caption-input {
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    border-radius: 4px;
+    margin-top: 4px;
+
+    cursor: text;
+
+    display: flex;
+
+    input {
+        padding: 12px 40px 12px 16px;
+
+        flex: 1;
+        font-size: 15px;
+        font-family: var(--primary-font-family);
+        font-weight: 400;
+        line-height: 18px;
+    }
+
+    img {
+        margin-right: 8px;
+    }
+}
+
+.cover {
+    margin-top: 24px;
+}
+
+.cover-input {
+    padding: 8px;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    border-radius: 4px;
+}
+
+.candidate {
+    height: 150px;
+    width: 12%;
+
+    background-color: rgba(22, 24, 35, 0.03);
+    border: 2px solid transparent;
+    border-radius: 2px;
+}
+
+.retriction-section {
+    margin-top: 24px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.section {
+    margin-top: 4px;
+    padding: 7px 12px;
+    outline: none;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    border-radius: 4px;
+
+    width: 300px;
+    height: 36px;
+
+    font-size: 16px;
+    font-family: var(--primary-font-family);
+    line-height: 22px;
+    color: rgb(22, 24, 35);
+
+    option {
+        border: 1px solid rgba(22, 24, 35, 0.12);
+        border-radius: 4px;
+
+        outline: none;
+    }
+}
+.users-permistion {
+    margin-top: 24px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.check-fill {
+    margin-top: 4px;
+
+    display: flex;
+}
+
+.copyright-check {
+    margin-top: 24px;
+    margin-bottom: 6px;
+
+    span {
+        margin-right: 14px;
+    }
+}
+
+.copyright {
+    font-size: 12px;
+    font-family: var(--primary-font-family);
+    font-weight: 400;
+    line-height: 1.5;
+
+    color: #161823bf;
+}
+
+.btn-row {
+    margin-top: 24px;
+    height: 48px;
+}
+
+.action-btns {
+    width: 164px;
+    height: 48px;
+}
